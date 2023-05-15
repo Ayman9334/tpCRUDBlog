@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth')->group(function () {
-    Route::get('/', [ArticleController::class, 'index'])->name('article.index');
-    Route::resource('/article', ArticleController::class)->except('index');
+Route::middleware('auth2')->group(function () {
+    Route::redirect('/', '/article');
+    Route::resource('/article', ArticleController::class);
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 });
 

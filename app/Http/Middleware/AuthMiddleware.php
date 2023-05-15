@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class OwnerMiddleware
+class AuthMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,9 @@ class OwnerMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        //ma bghatch tkhdem 
+        if (auth()->user() == null) {
+            return redirect()->route('login');
+        }
         return $next($request);
     }
 }
