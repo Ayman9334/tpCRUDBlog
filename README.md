@@ -9,6 +9,9 @@ cd tpCRUDBlog
 composer install
 ```
 ```
+php artisan storage:link
+```
+```
 php artisan migrate --seed
 ```
 ```
